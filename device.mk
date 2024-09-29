@@ -77,7 +77,7 @@ PRODUCT_PACKAGES += \
 # Additional Libraries
 TARGET_RECOVERY_DEVICE_MODULES += \
     libion \
-    libxml2
+    libxml2 \
     android.hardware.keymaster@4.1
 
 RECOVERY_LIBRARY_SOURCE_FILES += \
