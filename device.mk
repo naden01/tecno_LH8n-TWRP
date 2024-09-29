@@ -5,6 +5,22 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+# A/B
+AB_OTA_UPDATER := true
+AB_OTA_PARTITIONS += \
+    system_ext \
+    vendor \
+    vendor_dlkm \
+    system \
+    boot \
+    vendor_boot \
+    vbmeta \
+    vbmeta_system \
+    vbmeta_vendor \
+    product \
+    odm \
+    odm_dlkm
+
 LOCAL_PATH := device/tecno/LH8n
 # A/B
 AB_OTA_POSTINSTALL_CONFIG += \
@@ -33,18 +49,41 @@ PRODUCT_PACKAGES += \
     update_engine \
     update_verifier \
     update_engine_sideload
+
+# Fastbootd
+PRODUCT_PACKAGES += \
+    android.hardware.fastboot@1.0-impl-mock \
+    fastbootd
+
 # Health HAL
  PRODUCT_PACKAGES += \
      android.hardware.health@2.1-impl \
      android.hardware.health@2.1-service
+
+# Keymaster
+PRODUCT_PACKAGES += \
+    android.hardware.keymaster@4.1
+
+# Keystore Hal
+PRODUCT_PACKAGES += \
+    android.system.keystore2
+
+# Security
+PRODUCT_PACKAGES += \
+    android.hardware.security.keymint \
+    android.hardware.security.secureclock \
+    android.hardware.security.sharedsecret
+
 # Additional Libraries
 TARGET_RECOVERY_DEVICE_MODULES += \
     libion \
     libxml2
+    android.hardware.keymaster@4.1
 
 RECOVERY_LIBRARY_SOURCE_FILES += \
     $(TARGET_OUT_SHARED_LIBRARIES)/libion.so \
     $(TARGET_OUT_SHARED_LIBRARIES)/libxml2.so
+    $(TARGET_OUT_SHARED_LIBRARIES)/android.hardware.keymaster@4.1
 
 # Dynamic Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
