@@ -82,7 +82,7 @@ TARGET_RECOVERY_DEVICE_MODULES += \
 
 RECOVERY_LIBRARY_SOURCE_FILES += \
     $(TARGET_OUT_SHARED_LIBRARIES)/libion.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libxml2.so
+    $(TARGET_OUT_SHARED_LIBRARIES)/libxml2.so \
     $(TARGET_OUT_SHARED_LIBRARIES)/android.hardware.keymaster@4.1
 
 # Dynamic Partitions
