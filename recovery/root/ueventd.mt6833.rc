@@ -96,6 +96,23 @@
 # DRM node
 /dev/dri/card0            0660   system     system
 
+# Set permissions for keystore2 binary
+/system/bin/keystore2                          0755   root   root
+
+# Set permissions for keystore_cli_v2 binary
+/system/bin/keystore_cli_v2                    0755   root   root
+
+# Set permissions for available keystore-related libraries in lib64
+/system/lib64/libkeystore2_aaid.so            0644   root   root
+/system/lib64/libkeystore2_crypto.so           0644   root   root
+/system/lib64/libkeystore2_apc_compat.so      0644   root   root
+/system/lib64/libkeystore-engine.so            0644   root   root
+
+# Set permissions for Android Keystore libraries in lib64
+/system/lib64/android.system.keystore2-V1-cpp.so 0644   root   root
+/system/lib64/android.system.keystore2-V2-cpp.so 0644   root   root
+/system/lib64/android.system.keystore2-V3-cpp.so 0644   root   root
+
 # add the read write right of ttyUSB*
 /dev/bus/usb/*     	  0660   root       usb
 /dev/ttyUSB0              0660   radio      radio
