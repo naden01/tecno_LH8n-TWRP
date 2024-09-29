@@ -1,9 +1,12 @@
-# Android device tree for TECNO TECNO LH8n (TECNO-LH8n)
-```
 #
 # Copyright (C) 2024 The Android Open Source Project
 # Copyright (C) 2024 SebaUbuntu's TWRP device tree generator
 #
 # SPDX-License-Identifier: Apache-2.0
 #
-```
+
+LOCAL_PATH := $(call my-dir)
+
+ifeq ($(TARGET_DEVICE),LH8n)
+include $(call all-subdir-makefiles,$(LOCAL_PATH))
+endif
