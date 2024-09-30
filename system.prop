@@ -27,4 +27,4 @@ ro.hardware=mt6833
 ro.product.device=LH8n
 ro.build.product=LH8n
 
-#keymaster_ver=4.1
+keymaster_ver=4.1
