@@ -96,8 +96,8 @@
 
 # Set permissions for Android Keystore libraries in lib64
 /system/lib64/android.system.keystore2-V1-cpp.so 0644   root   root
+/system/lib64/android.system.keystore2-V1-ndk.so 0644   root   root 
 /system/lib64/android.system.keystore2-V2-ndk.so 0644   root   root 
-/system/lib64/android.system.keystore2-V3-ndk.so 0644   root   root 
 
 # Set permissions for legacy Keystore library
 /system/lib64/android.security.legacykeystore-ndk.so 0644 root root
