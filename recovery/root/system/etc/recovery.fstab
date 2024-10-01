@@ -14,8 +14,8 @@ system_ext			/system_ext		erofs		ro																	wait,slotselect,logical
 system_ext			/system_ext		ext4		ro																	wait,slotselect,logical
 
 # Userdata partition
-/dev/block/by-name/metadata	/metadata		ext4		noatime,nosuid,nodev,discard														wait,check,formattable
-/dev/block/by-name/userdata	/data			f2fs		noatime,nosuid,nodev,discard,noflush_merge,fsync_mode=nobarrier,reserve_root=134217,resgid=1065,inlinecrypt				wait,check,formattable,fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized,keydirectory=/metadata/vold/metadata_encryption
+/dev/block/by-name/metadata	/metadata		ext4		noatime,nosuid,nodev,discard wait,check,formattable,first_stage_mount
+/dev/block/by-name/userdata	/data			f2fs		noatime,nosuid,nodev,discard,noflush_merge,fsync_mode=nobarrier,reserve_root=134217,resgid=1065,inlinecrypt wait,check,formattable,quota,latemount,resize,reservedsize=128m,checkpoint=fs,fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized,keydirectory=/metadata/vold/metadata_encryption,fsverity,fscompress
 
 # Need to have this entry in here even though the mount point itself is no longer needed.
 # The update_engine code looks for this entry in order to determine the boot device address
