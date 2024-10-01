@@ -82,14 +82,6 @@ service vendor.keymaster-4-1-trustonic /vendor/bin/hw/android.hardware.keymaster
     user nobody
     seclabel u:r:recovery:s0
 
-service keystore2 /system/bin/keystore2
-    interface android.system.keystore2.IKeystoreService default
-    user root
-    group root
-    capabilities BLOCK_SUSPEND NET_BIND_SERVICE
-    seclabel u:r:recovery:s0
-    oneshot
-
 on property:crypto.ready=1
     start vendor.keymaster-4-1-trustonic
 
@@ -119,7 +111,6 @@ on property:crypto.ready=0
     stop vendor.keymaster-4-1-trustonic
 
 on post-fs-data
-    start keystore2
     mkdir /data/vendor_de 0770 system system
     mkdir /data/vendor_de/0 0770 system system
     mkdir /data/vendor_de/0/cryptoeng 0770 system system
