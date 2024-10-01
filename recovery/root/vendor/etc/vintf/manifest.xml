@@ -54,14 +54,6 @@
             <instance>default</instance>
         </interface>
         <fqname>@7.0::IEffectsFactory/default</fqname>
-    <hal format="aidl">
-        <name>android.system.keystore2</name>
-        <version>3</version>
-        <interface>
-            <name>IKeystoreService</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
     </hal>
     <hal format="hidl">
         <name>android.hardware.bluetooth</name>
