@@ -25,9 +25,15 @@ LOCAL_PATH := device/tecno/LH8n
 # A/B
 AB_OTA_POSTINSTALL_CONFIG += \
     RUN_POSTINSTALL_system=true \
-    POSTINSTALL_PATH_system=system/bin/otapreopt_script \
-    FILESYSTEM_TYPE_system=ext4 \
+    POSTINSTALL_PATH_system=system/bin/mtk_plpath_utils \
+    FILESYSTEM_TYPE_system=erofs \
     POSTINSTALL_OPTIONAL_system=true
+
+AB_OTA_POSTINSTALL_CONFIG += \
+    RUN_POSTINSTALL_vendor=true \
+    POSTINSTALL_PATH_vendor=bin/checkpoint_gc \
+    FILESYSTEM_TYPE_vendor=erofs \
+    POSTINSTALL_OPTIONAL_vendor=true
 
 # Boot control HAL
 PRODUCT_PACKAGES += \
@@ -46,6 +52,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     otapreopt_script \
     cppreopts.sh \
+    checkpoint_gc \
     update_engine \
     update_verifier \
     update_engine_sideload
@@ -60,19 +67,28 @@ PRODUCT_PACKAGES += \
      android.hardware.health@2.1-impl \
      android.hardware.health@2.1-service
 
+# Drm
+PRODUCT_PACKAGES += \
+    android.hardware.drm@1.4
+
+# Health
+PRODUCT_PACKAGES += \
+    android.hardware.health@2.1-impl \
+    android.hardware.health@2.1-service
+
 # Keymaster
 PRODUCT_PACKAGES += \
     android.hardware.keymaster@4.1
 
-# Keystore Hal
-PRODUCT_PACKAGES += \
-    android.system.keystore2
-
-# Security
+# Keymint
 PRODUCT_PACKAGES += \
     android.hardware.security.keymint \
     android.hardware.security.secureclock \
     android.hardware.security.sharedsecret
+
+# Keystore2
+PRODUCT_PACKAGES += \
+    android.system.keystore2
 
 # Additional Libraries
 TARGET_RECOVERY_DEVICE_MODULES += \
