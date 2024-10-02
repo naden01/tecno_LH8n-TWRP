@@ -35,15 +35,18 @@ AB_OTA_POSTINSTALL_CONFIG += \
     FILESYSTEM_TYPE_vendor=erofs \
     POSTINSTALL_OPTIONAL_vendor=true
 
-# Boot control HAL
+# Bootctrl
 PRODUCT_PACKAGES += \
-     android.hardware.boot@1.2-service \
-     android.hardware.boot@1.2-mtkimpl \
-     android.hardware.boot@1.2-mtkimpl.recovery
+    android.hardware.boot@1.2-mtkimpl \
+    android.hardware.boot@1.2-mtkimpl.recovery
+
+PRODUCT_PACKAGES += \
+    android.hardware.boot@1.2-impl \
+    android.hardware.boot@1.2-impl.recovery \
+    android.hardware.boot@1.2-service  
 
 PRODUCT_PACKAGES_DEBUG += \
-     bootctrl \
-     update_engine_client
+     bootctrl 
 
 PRODUCT_PACKAGES += \
      bootctrl.mt6833 \
