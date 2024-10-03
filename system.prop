@@ -1,26 +1,12 @@
-# Fstab
-ro.postinstall.fstab.prefix=/system
-
-# USB MTP
-ro.sys.usb.storage.type=mtp
-
-# misc
+# Crypto
 ro.crypto.volume.filenames_mode=aes-256-cts
-ro.adb.secure=0
-
-# Gatekeeper
-ro.hardware.gatekeeper=trustonic
+ro.crypto.metadata.enabled=true
+ro.crypto.support_metadata_encrypt=true
 
 # TEE
 ro.vendor.mtk_tee_gp_support=1
 ro.vendor.mtk_trustonic_tee_support=1
 
-# MTK
-ro.vendor.mediatek.platform=MT6833
-ro.hardware=mt6833
-
-# Board
-ro.product.device=LH8n
-ro.build.product=LH8n
-
-keymaster_ver=4.1
+# Gatekeeper
+ro.hardware.kmsetkey=trustonic
+ro.hardware.gatekeeper=trustonic
