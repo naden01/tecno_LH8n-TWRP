@@ -5,8 +5,7 @@ on init
     setprop sys.usb.configfs 1
     setprop sys.usb.controller "musb-hdrc"
     setprop sys.usb.ffs.aio_compat 1
-    export LD_LIBRARY_PATH /system/lib64:/vendor/lib64:/vendor/lib64/hw
-    setprop crypto.ready 1
+    export LD_LIBRARY_PATH /system/lib64:/vendor/lib64:/vendor/lib64/hw:/system/lib64/hw
 
 on fs
     install_keyring
@@ -60,20 +59,6 @@ service vendor.gatekeeper-1-0 /vendor/bin/hw/android.hardware.gatekeeper@1.0-ser
     disabled
     seclabel u:r:recovery:s0
 
-service set_permissive /system/bin/set_permissive.sh
-    user root
-    group root
-    disabled
-    oneshot 
-    seclabel u:r:recovery:s0
-    
- service overrideprops /system/bin/overrideprops.sh
-    user root
-    group root
-    disabled
-    oneshot
-    seclabel u:r:recovery:s0
-
 service vendor.keymaster-4-1-trustonic /vendor/bin/hw/android.hardware.keymaster@4.1-service.trustonic
     user root
     group root drmrpc
@@ -81,8 +66,6 @@ service vendor.keymaster-4-1-trustonic /vendor/bin/hw/android.hardware.keymaster
     oneshot
     seclabel u:r:recovery:s0
 
-on property:crypto.ready=1
-    start vendor.keymaster-4-1-trustonic
 
 on property:hwservicemanager.ready=true
     start mobicore
@@ -100,11 +83,6 @@ on property:ro.crypto.state=unencrypted
     stop vendor.keymaster-4-1-trustonic
 
 on property:twrp.decrypt.done=true
-    stop mobicore
-    stop vendor.gatekeeper-1-0
-    stop vendor.keymaster-4-1-trustonic
-
-on property:crypto.ready=0
     stop mobicore
     stop vendor.gatekeeper-1-0
     stop vendor.keymaster-4-1-trustonic
