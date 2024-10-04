@@ -14,6 +14,10 @@
         <fqname>@1.0::ISchedulingPolicyService/default</fqname>
     </hal>
     <hal format="aidl">
+        <name>android.system.keystore2</name>
+        <version>1.0</version>
+        <fqname>IKeystoreService/default</fqname>
+    <hal format="aidl">
         <name>android.frameworks.sensorservice</name>
         <fqname>ISensorManager/default</fqname>
     </hal>
