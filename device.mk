@@ -5,6 +5,8 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+LOCAL_PATH := device/tecno/LH8n
+
 # A/B
 AB_OTA_UPDATER := true
 AB_OTA_PARTITIONS += \
@@ -21,13 +23,23 @@ AB_OTA_PARTITIONS += \
     odm \
     odm_dlkm
 
-LOCAL_PATH := device/tecno/LH8n
-# A/B
+PRODUCT_PACKAGES += \
+    update_engine \
+    update_engine_sideload \
+    update_verifier \
+    checkpoint_gc
+
 AB_OTA_POSTINSTALL_CONFIG += \
     RUN_POSTINSTALL_system=true \
-    POSTINSTALL_PATH_system=system/bin/otapreopt_script \
-    FILESYSTEM_TYPE_system=ext4 \
+    POSTINSTALL_PATH_system=system/bin/mtk_plpath_utils \
+    FILESYSTEM_TYPE_system=erofs \
     POSTINSTALL_OPTIONAL_system=true
+
+AB_OTA_POSTINSTALL_CONFIG += \
+    RUN_POSTINSTALL_vendor=true \
+    POSTINSTALL_PATH_vendor=bin/checkpoint_gc \
+    FILESYSTEM_TYPE_vendor=erofs \
+    POSTINSTALL_OPTIONAL_vendor=true
 
 # Bootctrl
 PRODUCT_PACKAGES += \
@@ -37,27 +49,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES_DEBUG += \
      bootctrl 
 
-PRODUCT_PACKAGES += \
-     bootctrl.mt6833 \
-     bootctrl.mt6833.recovery
-
-PRODUCT_PACKAGES += \
-    otapreopt_script \
-    cppreopts.sh \
-    checkpoint_gc \
-    update_engine \
-    update_verifier \
-    update_engine_sideload
-
 # Fastbootd
 PRODUCT_PACKAGES += \
     android.hardware.fastboot@1.0-impl-mock \
     fastbootd
-
-# Health
-PRODUCT_PACKAGES += \
-    android.hardware.health@1.0 \
-    android.hardware.health@2.0
 
 # Drm
 PRODUCT_PACKAGES += \
@@ -65,8 +60,8 @@ PRODUCT_PACKAGES += \
 
 # Health
 PRODUCT_PACKAGES += \
-    android.hardware.health@2.1-impl \
-    android.hardware.health@2.1-service
+    android.hardware.health@1.0 \
+    android.hardware.health@2.0
 
 # Keymaster
 PRODUCT_PACKAGES += \
@@ -88,6 +83,10 @@ PRODUCT_PACKAGES += \
     mtk_plpath_utils \
     mtk_plpath_utils.recovery
 
+# Keystore2
+PRODUCT_PACKAGES += \
+    android.system.keystore2
+
 # Dynamic Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
@@ -95,4 +94,4 @@ PRODUCT_USE_DYNAMIC_PARTITIONS := true
 PRODUCT_TARGET_VNDK_VERSION := 31
 
 # API
-PRODUCT_SHIPPING_API_LEVEL := 31
+PRODUCT_SHIPPING_API_LEVEL := 34
