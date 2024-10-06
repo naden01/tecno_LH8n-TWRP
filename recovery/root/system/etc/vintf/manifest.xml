@@ -14,10 +14,6 @@
         <fqname>@1.0::ISchedulingPolicyService/default</fqname>
     </hal>
     <hal format="aidl">
-        <name>android.system.keystore2</name>
-        <version>3</version>
-        <fqname>IKeystoreService/default</fqname>
-    <hal format="aidl">
         <name>android.frameworks.sensorservice</name>
         <fqname>ISensorManager/default</fqname>
     </hal>
@@ -30,30 +26,16 @@
         <name>android.hidl.memory</name>
         <transport arch="32+64">passthrough</transport>
         <fqname>@1.0::IMapper/ashmem</fqname>
-    <hal format="hidl">
-        <name>android.hidl.token</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IServiceManager</name>
-            <instance>default</instance>
-        </interface>
-        <fqname>@1.0::ITokenManager/default</fqname>
-    </hal>
-    <hal format="hidl">
-        <name>android.hidl.manager</name>
-        <transport>hwbinder</transport>
-        <version>1.2</version>
-        <interface>
-            <name>IServiceManager</name>
-            <instance>default</instance>
-        </interface>
-        <fqname>@1.2::IServiceManager/default</fqname>
     </hal>
     <hal format="hidl" max-level="7">
         <name>android.system.net.netd</name>
         <transport>hwbinder</transport>
         <fqname>@1.1::INetd/default</fqname>
+    </hal>
+	<hal format="aidl">
+        <name>android.system.keystore2</name>
+        <version>1</version>
+        <fqname>IKeystoreService/default</fqname>
     </hal>
     <hal format="hidl" max-level="7">
         <name>android.system.wifi.keystore</name>
