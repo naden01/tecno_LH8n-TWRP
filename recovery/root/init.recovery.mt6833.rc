@@ -101,5 +101,5 @@ on property:twrp.decrypt.done=true
     stop vendor.keymaster-4-1-trustonic
 
 on boot
-    start vendor.health-default
+    start health-hal-2-1
     setprop sys.usb.config adb
