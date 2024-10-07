@@ -102,4 +102,6 @@ on property:twrp.decrypt.done=true
 
 on boot
     start health-hal-2-1
-    setprop sys.usb.config adb
+    setprop sys.usb.config mtp,adb
+    setprop sys.usb.state mtp,adb
+    setprop persist.sys.usb.config mtp,adb 
