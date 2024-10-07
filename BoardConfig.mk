@@ -165,7 +165,7 @@ TW_USE_SERIALNO_PROPERTY_FOR_DEVICE_ID := true
 
 # USB Configuration
 TW_EXCLUDE_DEFAULT_USB_INIT := true
-TARGET_USE_CUSTOM_LUN_FILE_PATH := /config/usb_gadget/g1/functions/mass_storage.usb0/lun.%d/file
+TARGET_USE_CUSTOM_LUN_FILE_PATH := "/config/usb_gadget/g1/functions/mass_storage.usb0/lun.%d/file"
 TW_HAS_MTP := true
 
 # USB OTG
@@ -185,4 +185,4 @@ TARGET_INIT_VENDOR_LIB := libinit_LH8n
 TARGET_RECOVERY_DEVICE_MODULES := libinit_LH8n
 
 # Version
-TW_DEVICE_VERSION := naze
+TW_DEVICE_VERSION := naze | LH8n
