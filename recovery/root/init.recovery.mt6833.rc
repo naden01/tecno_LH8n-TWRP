@@ -7,6 +7,7 @@ on init
     setprop sys.usb.controller "musb-hdrc"
     setprop sys.usb.ffs.aio_compat 1
     export LD_LIBRARY_PATH /system/lib64:/vendor/lib64:/vendor/lib64/hw:/system/lib64/hw
+    setprop crypto.ready 1
 
 on fs
     install_keyring
@@ -77,6 +78,12 @@ service vendor.keymaster-4-1-trustonic /vendor/bin/hw/android.hardware.keymaster
     oneshot
     seclabel u:r:recovery:s0
 
+on property:crypto.ready=1
+    start mobicore
+    start keymaster_attestation-1-1
+    start vendor.gatekeeper-1-0
+    start vendor.keymaster-4-1-trustonic
+
 on property:hwservicemanager.ready=true
     start mobicore
     start keymaster_attestation-1-1
@@ -96,6 +103,12 @@ on property:ro.crypto.state=unencrypted
     stop vendor.keymaster-4-1-trustonic
 
 on property:twrp.decrypt.done=true
+    stop mobicore
+    stop keymaster_attestation-1-1
+    stop vendor.gatekeeper-1-0
+    stop vendor.keymaster-4-1-trustonic
+
+on property:crypto.ready=0
     stop mobicore
     stop keymaster_attestation-1-1
     stop vendor.gatekeeper-1-0
