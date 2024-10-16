@@ -22,14 +22,14 @@
 /persistent		emmc		/dev/block/by-name/frp											flags=display=persistent;backup
 
 # IMEI and modem related
-/nvdata			ext4		/dev/block/by-name/nvdata										flags=display=nvdata;backup
+/nvdata			ext4		/dev/block/by-name/nvdata										flags=display=nvdata;slotselect;backup;flashimg
 /protect_f		ext4		/dev/block/by-name/protect1										flags=display=protect_f;backup
 /protect_s		ext4		/dev/block/by-name/protect2										flags=display=protect_s;backup
-/nvram			emmc		/dev/block/by-name/nvram										flags=display=nvram;backup
+/nvram			emmc		/dev/block/by-name/nvram										flags=display=nvram;slotselect;backup;flashimg
 
 # Standard MediaTeks's partitions
 /expdb			emmc		/dev/block/by-name/expdb										flags=display=expdb
-/logo			emmc		/dev/block/by-name/logo											flags=display=logo;slotselect;backup
+/logo			emmc		/dev/block/by-name/logo											flags=display=logo;slotselect;backup;flashimg
 /otp			emmc		/dev/block/by-name/otp											flags=display=otp
 /seccfg			emmc		/dev/block/by-name/seccfg										flags=display=seccfg
 /spmfw			emmc		/dev/block/by-name/spmfw										flags=display=spmfw;slotselect
@@ -41,8 +41,8 @@
 /usb_otg		auto		/dev/block/sdd1			                                                                        flags=display="USB-OTG";storage;wipeingui;removable;backup=0
 
 # Flashable logical partitions
-/system_image		emmc		/dev/block/bootdevice/by-name/system									flags=backup;flashimg
-/vendor_image		emmc		/dev/block/bootdevice/by-name/vendor									flags=backup;flashimg
-/system_ext_image	emmc		/dev/block/bootdevice/by-name/system_ext								flags=display="System_EXT Image";backup;flashimg
-/product_image		emmc		/dev/block/bootdevice/by-name/product									flags=display="Product Image";backup;flashimg
-/vendor_dlkm_image	emmc		/dev/block/bootdevice/by-name/vendor_dlkm								flags=display="VendorDLKM Image";backup;flashimg
+/system		emmc		/system									flags=display=system;slotselect;backup;flashimg
+/vendor		emmc		/vendor									flags=display=vendor;slotselect;backup;flashimg
+/system_ext	emmc		/system_ext								flags=display="System_EXT;backup;flashimg
+/product		emmc		/product									flags=display="Product";backup;flashimg
+/vendor_dlkm	emmc		/vendor_dlkm								flags=display="VendorDLKM";backup;flashimg
