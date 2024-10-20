@@ -10,18 +10,19 @@ LOCAL_PATH := device/tecno/LH8n
 # A/B
 AB_OTA_UPDATER := true
 AB_OTA_PARTITIONS += \
-    system_ext \
-    vendor \
-    vendor_dlkm \
-    system \
     boot \
-    vendor_boot \
-    vbmeta \
+    dtbo \
+    lk \
+    odm \
+    odm_dlkm \
+    product \
+    system \
+    system_ext \
     vbmeta_system \
     vbmeta_vendor \
-    product \
-    odm \
-    odm_dlkm
+    vendor \
+    vendor_boot \
+    vendor_dlkm
 
 PRODUCT_PACKAGES += \
     update_engine \

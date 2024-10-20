@@ -23,8 +23,8 @@
 
 # IMEI and modem related
 /nvdata			ext4		/dev/block/by-name/nvdata										flags=display="nvdata";slotselect;backup;flashimg
-/protect_f		ext4		/dev/block/by-name/protect1										flags=display=protect_f;backup
-/protect_s		ext4		/dev/block/by-name/protect2										flags=display=protect_s;backup
+/protect_f		ext4		/dev/block/by-name/protect1										flags=display="protect_f";backup;slotselect;backup;flashimg
+/protect_s		ext4		/dev/block/by-name/protect2										flags=display="protect_s";backup;slotselect;backup;flashimg
 /nvram			emmc		/dev/block/by-name/nvram										flags=display="nvram";slotselect;backup;flashimg
 
 # Standard MediaTeks's partitions
@@ -37,12 +37,12 @@
 /tee2			emmc		/dev/block/by-name/tee2											flags=display=tee2
 
 # Removable Storage
-/external_sd		auto		/dev/block/mmcblk1p1				/dev/block/mmcblk0p1					flags=display="Micro SD Card";storage;wipeingui;removable;backup=0
+/external_sd		auto		/dev/block/mmcblk1p1				/dev/block/mmcblk0p1					flags=display="Micro SD" Card";storage;wipeingui;removable;backup=0
 /usb_otg		auto		/dev/block/sdd1			                                                                        flags=display="USB-OTG";storage;wipeingui;removable;backup=0
 
 # Flashable logical partitions
-/system 	emmc		/system									flags=display="system image";slotselect;backup;flashimg
-/vendor		emmc		/vendor									flags=display="vendor image";slotselect;backup;flashimg
-/system_ext	emmc		/system_ext								flags=display="System_EXT";backup;flashimg
-/product		emmc		/product									flags=display="Product";slotselect;backup;flashimg
-/vendor_dlkm	emmc		/vendor_dlkm								flags=display="VendorDLKM";backup;flashimg
+/system_image_a	       emmc		/dev/block/mapper/system_a									flags=display="system a";backup;flashimg
+/system_image_b	       emmc		/dev/block/mapper/system_b									flags=display="system b";backup;flashimg
+/vendor_image	       emmc		/dev/block/mapper/vendor									flags=display="vendor image";slotselect;backup;flashimg
+/system_ext_image      emmc		/dev/block/mapper/system_ext								        flags=display="System_EXT image";slotselect;backup;flashimg
+/product_image         emmc             /dev/block/mapper/product									flags=display="Product image";slotselect;backup;flashimg
