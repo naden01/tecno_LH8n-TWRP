@@ -8,6 +8,7 @@
 LOCAL_PATH := device/tecno/LH8n
 
 # A/B
+ENABLE_VIRTUAL_AB := true
 AB_OTA_UPDATER := true
 AB_OTA_PARTITIONS += \
     boot \
