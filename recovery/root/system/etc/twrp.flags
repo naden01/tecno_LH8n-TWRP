@@ -12,7 +12,7 @@
 /vbmeta_vendor		emmc		/dev/block/by-name/vbmeta_vendor									flags=display=vbmeta_vendor;slotselect;backup;flashimg
 
 # Firmware
-/dtbo			emmc		/dev/block/by-name/dtbo											flags=display=dtbo;slotselect;backup
+/dtbo			emmc		/dev/block/by-name/dtbo											flags=display=dtbo;slotselect;backup;flashimg
 /metadata		ext4		/dev/block/by-name/metadata										flags=display=metadata;backup
 /misc			emmc		/dev/block/by-name/misc											flags=display=misc;backup
 
@@ -22,10 +22,10 @@
 /persistent		emmc		/dev/block/by-name/frp											flags=display=persistent;backup
 
 # IMEI and modem related
-/nvdata			ext4		/dev/block/by-name/nvdata										flags=display="nvdata";slotselect;backup;flashimg
-/protect_f		ext4		/dev/block/by-name/protect1										flags=display="protect_f";backup;slotselect;backup;flashimg
-/protect_s		ext4		/dev/block/by-name/protect2										flags=display="protect_s";backup;slotselect;backup;flashimg
-/nvram			emmc		/dev/block/by-name/nvram										flags=display="nvram";slotselect;backup;flashimg
+/nvdata			ext4		/dev/block/by-name/nvdata										flags=display="nvdata";backup
+/protect_f		ext4		/dev/block/by-name/protect1										flags=display="protect_f";backup
+/protect_s		ext4		/dev/block/by-name/protect2										flags=display="protect_s";backup
+/nvram			emmc		/dev/block/by-name/nvram										flags=display="nvram";backup
 
 # Standard MediaTeks's partitions
 /expdb			emmc		/dev/block/by-name/expdb										flags=display=expdb
@@ -38,7 +38,7 @@
 
 # Removable Storage
 /external_sd		auto		/dev/block/mmcblk1p1				/dev/block/mmcblk0p1					flags=display="Micro SD" Card";storage;wipeingui;removable;backup=0
-/usb_otg		auto		/dev/block/sdd1			                                                                        flags=display="USB-OTG";storage;wipeingui;removable;backup=0
+/usb_otg		auto		/dev/block/sda1					/dev/block/sda		/dev/block/sdd1	    flags=display="USB-OTG";storage;wipeingui;removable;backup=0
 
 # Flashable logical partitions
 /system_image_a	       emmc		/dev/block/mapper/system_a									flags=display="system a";backup;flashimg
