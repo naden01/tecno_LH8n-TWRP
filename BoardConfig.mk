@@ -210,12 +210,9 @@ TARGET_INIT_VENDOR_LIB := libinit_LH8n
 TARGET_RECOVERY_DEVICE_MODULES := libinit_LH8n
 
 # Vendor Modules
-TW_LOAD_VENDOR_MODULES             := "aw862xx_haptic.ko regulator-vibrator.ko"
+TW_LOAD_VENDOR_MODULES             := true
 TW_LOAD_VENDOR_BOOT_MODULES        := true
 TW_LOAD_VENDOR_MODULES_EXCLUDE_GKI := true
-
-# Haptics
-TW_SUPPORT_INPUT_AIDL_HAPTICS := true
 
 # Version
 TW_DEVICE_VERSION := naze | LH8n
