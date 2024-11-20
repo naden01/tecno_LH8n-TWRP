@@ -7,7 +7,6 @@ export OF_DEFAULT_KEYMASTER_VERSION=4.1
 export OF_NO_TREBLE_COMPATIBILITY_CHECK=1
 export OF_MAINTAINER="nazephyrus"
 export FOX_VARIANT="Stable"
-export OF_FLASHLIGHT_ENABLE=0
 
 export FOX_USE_BASH_SHELL=1
 export FOX_USE_NANO_EDITOR=1
@@ -42,8 +41,12 @@ export ALLOW_MISSING_DEPENDENCIES=true
 export LC_ALL="C"
 
 # use magisk 27.0 for the magisk addon
-export FOX_USE_SPECIFIC_MAGISK_ZIP=~/Magisk/Magisk-v27.0.zip
-export MAGISK_VER=27.0
+export FOX_USE_SPECIFIC_MAGISK_ZIP=~/Magisk/Magisk-v28.0.zip
+export MAGISK_VER=28.0
 
 # instruct magiskboot v26+ to always patch the vbmeta header when patching the recovery/boot image; do *not* remove!
 export FOX_PATCH_VBMETA_FLAG=1
+
+# flashlight
+export OF_FLASHLIGHT_ENABLE=1
+export OF_FL_PATH1="/sys/class/torch/torch_level"
