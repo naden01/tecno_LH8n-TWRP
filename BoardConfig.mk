@@ -156,8 +156,9 @@ TW_THEME := portrait_hdpi
 TW_EXTRA_LANGUAGES            := true
 TW_INPUT_BLACKLIST            := "hbtp_vm"
 TW_USE_TOOLBOX                := true
+TW_NO_FLASH_CURRENT_TWRP      := true
 
-TW_FRAMERATE := 120
+TW_FRAMERATE := 60
 TW_BRIGHTNESS_PATH    := "/sys/class/leds/lcd-backlight/brightness"
 TW_MAX_BRIGHTNESS     := 2047
 TW_DEFAULT_BRIGHTNESS := 1200
