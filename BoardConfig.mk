@@ -129,6 +129,7 @@ TW_INCLUDE_FBE_METADATA_DECRYPT := true
 BOARD_USES_METADATA_PARTITION   := true
 TW_USE_FSCRYPT_POLICY           := 2
 TW_FORCE_KEYMASTER_VER          := true
+TW_PREPARE_DATA_MEDIA_EARLY     := true
 
 PLATFORM_VERSION                := 14
 PLATFORM_VERSION_LAST_STABLE    := $(PLATFORM_VERSION)
@@ -155,9 +156,8 @@ TW_THEME := portrait_hdpi
 TW_EXTRA_LANGUAGES            := true
 TW_INPUT_BLACKLIST            := "hbtp_vm"
 TW_USE_TOOLBOX                := true
-TW_NO_FLASH_CURRENT_TWRP      := true
 
-TW_FRAMERATE := 60
+TW_FRAMERATE          := 60
 TW_BRIGHTNESS_PATH    := "/sys/class/leds/lcd-backlight/brightness"
 TW_MAX_BRIGHTNESS     := 2047
 TW_DEFAULT_BRIGHTNESS := 1200
@@ -189,7 +189,6 @@ TW_INCLUDE_FASTBOOTD := true
 
 # USB Configuration
 TW_EXCLUDE_DEFAULT_USB_INIT := true
-TW_HAS_MTP := true
 
 # USB OTG
 TW_USB_STORAGE := true
