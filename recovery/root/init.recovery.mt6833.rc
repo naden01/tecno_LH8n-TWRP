@@ -2,10 +2,6 @@ import /tee.rc
 import /trustonic.rc
 import /init.custom.rc
 
-# Set SELinux to Permissive
-on early-init
-    write /sys/fs/selinux/enforce 0
-
 on init
     setprop sys.usb.configfs 1
     setprop sys.usb.controller "musb-hdrc"
@@ -120,6 +116,4 @@ on property:crypto.ready=0
 
 on boot
     start health-hal-2-1
-    setprop sys.usb.config mtp,adb
-    setprop sys.usb.state mtp,adb
-    setprop persist.sys.usb.config mtp,adb 
+    setprop sys.usb.config adb
