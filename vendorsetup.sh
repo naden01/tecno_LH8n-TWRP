@@ -5,8 +5,6 @@ export FOX_AB_DEVICE=1
 export FOX_VIRTUAL_AB_DEVICE=1
 export OF_DEFAULT_KEYMASTER_VERSION=4.1
 export OF_NO_TREBLE_COMPATIBILITY_CHECK=1
-export OF_MAINTAINER="nazephyrus"
-export FOX_VARIANT="A12+"
 
 export FOX_USE_BASH_SHELL=1
 export FOX_USE_NANO_EDITOR=1
@@ -35,6 +33,12 @@ export OF_STATUS_INDENT_LEFT=48
 export OF_STATUS_INDENT_RIGHT=48
 export OF_ALLOW_DISABLE_NAVBAR=0
 export OF_CLOCK_POS=1
+
+# maintainer 
+export OF_MAINTAINER_AVATAR="$(gettop)/device/tecno/LH8n/maintainer_avatar.png"
+cp "${OF_MAINTAINER_AVATAR}" "$(gettop)/bootable/recovery/gui/theme/portrait_hdpi/images/Default/About/maintainer.png"
+export OF_MAINTAINER="nazephyrus"
+export FOX_VARIANT="A12+"
 
 # Important build settings
 export ALLOW_MISSING_DEPENDENCIES=true
