@@ -84,7 +84,7 @@ BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE         := $(BOARD_BOOTIMAGE_PARTITION_SIZ
 BOARD_HAS_LARGE_FILESYSTEM                    := true
 BOARD_SUPER_PARTITION_SIZE                    := 9126805504 # TODO: Fix hardcoded value
 BOARD_SUPER_PARTITION_GROUPS                  := tecno_dynamic_partitions
-BOARD_TECNO_DYNAMIC_PARTITIONS_PARTITION_LIST +=
+BOARD_TECNO_DYNAMIC_PARTITIONS_PARTITION_LIST += \
     odm_dlkm \
     product \
     system \
