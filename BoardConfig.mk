@@ -177,11 +177,8 @@ TW_EXCLUDE_LPDUMP      := true
 TW_EXCLUDE_APEX        := true
 
 TW_HAS_NO_RECOVERY_PARTITION := true
-TW_BACKUP_EXCLUSIONS         := /data/fonts
 
 TARGET_USES_MKE2FS := true
-TW_USE_SERIALNO_PROPERTY_FOR_DEVICE_ID := true
-
 # StatusBar
 TW_STATUS_ICONS_ALIGN := center
 TW_CUSTOM_CPU_POS     := "300"
@@ -197,8 +194,6 @@ TW_EXCLUDE_DEFAULT_USB_INIT := true
 # USB OTG
 TW_USB_STORAGE := true
 
-# Support /data/media
-RECOVERY_SDCARD_ON_DATA := true
 
 # Vendor Boot
 BOARD_EXCLUDE_KERNEL_FROM_RECOVERY_IMAGE     := true
@@ -214,4 +209,4 @@ TW_LOAD_VENDOR_BOOT_MODULES        := true
 TW_LOAD_VENDOR_MODULES_EXCLUDE_GKI := true
 
 # Version
-TW_DEVICE_VERSION := naze | LH8n
+TW_DEVICE_VERSION := Nazephyrus | LH8n
