@@ -74,20 +74,10 @@ PRODUCT_PACKAGES += \
 
 # Additional Libraries
 TARGET_RECOVERY_DEVICE_MODULES += \
-    libion \
-    libxml2 \
     android.hardware.keymaster@4.1 \
-    libkeymaster4 \
-    libkeymaster41 \
-    libpuresoftkeymasterdevice
 
 RECOVERY_LIBRARY_SOURCE_FILES += \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libion.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libxml2.so \
     $(TARGET_OUT_SHARED_LIBRARIES)/android.hardware.keymaster@4.1 \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster4.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster41.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libpuresoftkeymasterdevice.so
 
 # Mtk plpath utils
 PRODUCT_PACKAGES += \
