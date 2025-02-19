@@ -8,7 +8,9 @@
 DEVICE_PATH := device/tecno/LH8n
 
 # For building with minimal manifest
-ALLOW_MISSING_DEPENDENCIES := true
+ALLOW_MISSING_DEPENDENCIES                   := true
+BUILD_BROKEN_DUP_RULES                       := true
+BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 
 # Architecture
 TARGET_ARCH                := arm64
@@ -66,10 +68,6 @@ BOARD_MKBOOTIMG_ARGS += --dtb_offset $(BOARD_DTB_OFFSET)
 TARGET_PREBUILT_DTB  := $(DEVICE_PATH)/prebuilt/dtb.img
 BOARD_MKBOOTIMG_ARGS += --dtb $(TARGET_PREBUILT_DTB)
 
-# Build Rules
-BUILD_BROKEN_DUP_RULES                       := true
-BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
-
 # Debug
 TWRP_INCLUDE_LOGCAT := true
 TARGET_USES_LOGD    := true
@@ -84,26 +82,22 @@ BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE         := $(BOARD_BOOTIMAGE_PARTITION_SIZ
 BOARD_HAS_LARGE_FILESYSTEM                    := true
 BOARD_SUPER_PARTITION_SIZE                    := 9126805504 # TODO: Fix hardcoded value
 BOARD_SUPER_PARTITION_GROUPS                  := tecno_dynamic_partitions
-BOARD_TECNO_DYNAMIC_PARTITIONS_PARTITION_LIST := system vendor product system_ext vendor_dlkm odm_dlkm
+BOARD_TECNO_DYNAMIC_PARTITIONS_PARTITION_LIST := system vendor product system_ext
 BOARD_TECNO_DYNAMIC_PARTITIONS_SIZE           := 9122611200 # TODO: Fix hardcoded value
 
 # Partitions - file type
-BOARD_ODM_DLKMIMAGE_FILE_SYSTEM_TYPE    := ext4
 BOARD_PRODUCTIMAGE_FILE_SYSTEM_TYPE     := ext4
 BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE      := ext4
 BOARD_SYSTEM_EXTIMAGE_FILE_SYSTEM_TYPE  := ext4
 BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE    := f2fs
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE      := ext4
-BOARD_VENDOR_DLKMIMAGE_FILE_SYSTEM_TYPE := ext4
 TARGET_USERIMAGES_USE_EXT4              := true
 TARGET_USERIMAGES_USE_F2FS              := true
 
-TARGET_COPY_OUT_ODM_DLKM                := odm_dlkm
 TARGET_COPY_OUT_PRODUCT                 := product
 TARGET_COPY_OUT_SYSTEM                  := system
 TARGET_COPY_OUT_SYSTEM_EXT              := system_ext
 TARGET_COPY_OUT_VENDOR                  := vendor
-TARGET_COPY_OUT_VENDOR_DLKM             := vendor_dlkm
 
 # Platform
 TARGET_BOARD_PLATFORM := mt6833
@@ -129,7 +123,6 @@ TW_INCLUDE_FBE_METADATA_DECRYPT := true
 BOARD_USES_METADATA_PARTITION   := true
 TW_USE_FSCRYPT_POLICY           := 2
 TW_FORCE_KEYMASTER_VER          := true
-TW_PREPARE_DATA_MEDIA_EARLY     := true
 
 PLATFORM_VERSION                := 14
 PLATFORM_VERSION_LAST_STABLE    := $(PLATFORM_VERSION)
@@ -152,10 +145,8 @@ TARGET_SCREEN_HEIGHT  := 2460
 TARGET_SCREEN_DENSITY := 480
 
 # TWRP Configuration
-TW_THEME := portrait_hdpi
 TW_EXTRA_LANGUAGES            := true
-TW_INPUT_BLACKLIST            := "hbtp_vm"
-TW_USE_TOOLBOX                := true
+TARGET_USES_MKE2FS            := true
 
 TW_FRAMERATE          := 60
 TW_BRIGHTNESS_PATH    := "/sys/class/leds/lcd-backlight/brightness"
@@ -163,22 +154,19 @@ TW_MAX_BRIGHTNESS     := 2047
 TW_DEFAULT_BRIGHTNESS := 1200
 TW_NO_SCREEN_BLANK    := true
 
+# Tools
 TW_INCLUDE_FB2PNG       := true
 TW_INCLUDE_NTFS_3G      := true
 TW_INCLUDE_REPACKTOOLS  := true
-TW_INCLUDE_RESETPROP    := true
 TW_INCLUDE_LIBRESETPROP := true
 TW_INCLUDE_RESETPROP    := true
 TW_INCLUDE_LPTOOLS      := true
-TW_INCLUDE_FUSE_EXFAT   := true
-TW_INCLUDE_FUSE_NTFS    := true
+TW_EXCLUDE_LPDUMP       := true
+TW_EXCLUDE_APEX         := true
 
-TW_EXCLUDE_LPDUMP      := true
-TW_EXCLUDE_APEX        := true
-
+# no recovery partition
 TW_HAS_NO_RECOVERY_PARTITION := true
 
-TARGET_USES_MKE2FS := true
 # StatusBar
 TW_STATUS_ICONS_ALIGN := center
 TW_CUSTOM_CPU_POS     := "300"
@@ -194,19 +182,16 @@ TW_EXCLUDE_DEFAULT_USB_INIT := true
 # USB OTG
 TW_USB_STORAGE := true
 
-
 # Vendor Boot
 BOARD_EXCLUDE_KERNEL_FROM_RECOVERY_IMAGE     := true
 BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := true
 
 # Init
-TARGET_INIT_VENDOR_LIB := libinit_LH8n
+TARGET_INIT_VENDOR_LIB         := libinit_LH8n
 TARGET_RECOVERY_DEVICE_MODULES := libinit_LH8n
 
 # Vendor Modules
-TW_LOAD_VENDOR_MODULES             := true
-TW_LOAD_VENDOR_BOOT_MODULES        := true
-TW_LOAD_VENDOR_MODULES_EXCLUDE_GKI := true
+TW_LOAD_VENDOR_BOOT_MODULES := true
 
 # Version
 TW_DEVICE_VERSION := Nazephyrus | LH8n

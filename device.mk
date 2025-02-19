@@ -7,9 +7,10 @@
 
 LOCAL_PATH := device/tecno/LH8n
 
-# Virtual A/B
+# Enable Virtual A/B OTA
 ENABLE_VIRTUAL_AB := true
-$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch_with_vendor_ramdisk.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/compression.mk)
 
 # A/B
 AB_OTA_UPDATER := true
@@ -17,16 +18,13 @@ AB_OTA_PARTITIONS += \
     boot \
     dtbo \
     lk \
-    odm \
-    odm_dlkm \
     product \
     system \
     system_ext \
     vbmeta_system \
     vbmeta_vendor \
     vendor \
-    vendor_boot \
-    vendor_dlkm
+    vendor_boot
 
 PRODUCT_PACKAGES += \
     update_engine \
@@ -77,12 +75,7 @@ TARGET_RECOVERY_DEVICE_MODULES += \
     android.hardware.keymaster@4.1 \
 
 RECOVERY_LIBRARY_SOURCE_FILES += \
-    $(TARGET_OUT_SHARED_LIBRARIES)/android.hardware.keymaster@4.1 \
-
-# Mtk plpath utils
-PRODUCT_PACKAGES += \
-    mtk_plpath_utils \
-    mtk_plpath_utils.recovery
+    $(TARGET_OUT_SHARED_LIBRARIES)/android.hardware.keymaster@4.1
 
 # Keystore2
 PRODUCT_PACKAGES += \
@@ -96,7 +89,3 @@ PRODUCT_TARGET_VNDK_VERSION := 31
 
 # API
 PRODUCT_SHIPPING_API_LEVEL := 31
-
-# Soong
-PRODUCT_SOONG_NAMESPACES += \
-    $(LOCAL_PATH)
