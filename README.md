@@ -34,8 +34,7 @@ Medium checks
 - [✔] Screen goes off and on
 - [✔] F2FS/EXT4 Support, exFAT/NTFS where supported
 - [✔] all important partitions listed in mount/backup lists
-- [✔] backup/restore to/from external (USB-OTG) storage (not supported by the device)
-- [✔] backup/restore to/from adb 
+- [✔] backup/restore to/from external (USB-OTG) storage
 - [✔] decrypt /data
 - [✔] Correct date
 
@@ -47,7 +46,7 @@ Minor checks
 - [✔] battery level
 - [✔] temperature ( working but sometimes buggy )
 - [✔] encrypted backups
-- [✔] input devices via USB (USB-OTG) - keyboard, mouse and disks
+- [✔] input devices via USB (USB-OTG) - keyboard and mouse
 - [✔] USB mass storage export
 - [✔] set brightness
 - [✔] vibrate
@@ -56,7 +55,7 @@ Minor checks
 - [✔] Fastbootd
 
 # Clone
-    git clone https://github.com/naden01/tecno_LH8n.git -b 14 device/tecno/LH8n
+    git clone https://github.com/naden01/tecno_LH8n.git -b android-12.1 device/tecno/LH8n
 
 # Build
     export ALLOW_MISSING_DEPENDENCIES=true; . build/envsetup.sh; lunch twrp_LH8n-eng; mka vendorbootimage
