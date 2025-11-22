@@ -18,6 +18,11 @@ on early-fs
 on late-fs
     mount_all /first_stage_ramdisk/fstab.mt6833 --late
 
+on post-fs-data
+    # Load flashlight drivers
+    insmod /vendor/lib/modules/flashlight.ko
+	insmod /vendor/lib/modules/flashlight-aw36515.ko
+	
 on post-fs
     start boot-hal-1-2
 

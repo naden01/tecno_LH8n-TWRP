@@ -55,7 +55,8 @@ export ALLOW_MISSING_DEPENDENCIES=true
 export LC_ALL="C"
 
 # flashlight
-export OF_FLASHLIGHT_ENABLE=0
+export OF_FLASHLIGHT_ENABLE=1
+#OF_FL_PATH1="/sys/class/torch/torch"
 
 TFILE=$PWD/out/hapticspath.patched
 [ ! -d "out" ]&& mkdir -p out
