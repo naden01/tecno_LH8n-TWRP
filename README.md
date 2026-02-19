@@ -61,3 +61,7 @@ Minor checks
 
 # Build
     export ALLOW_MISSING_DEPENDENCIES=true; . build/envsetup.sh; lunch twrp_LH8n-eng; mka vendorbootimage
+
+# Reference
+- [ramabondanp ](https://github.com/ramabondanp) - Transsion Common Tree
+- [Shivelight](https://github.com/Shivelight) - Touch Fix 
