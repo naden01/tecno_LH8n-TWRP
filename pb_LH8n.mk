@@ -15,14 +15,14 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
 # Enable project quotas and casefolding for emulated storage without sdcardfs
 $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 
-# Inherit some common TWRP stuff.
-$(call inherit-product, vendor/twrp/config/common.mk)
+# Inherit some common pb stuff.
+$(call inherit-product, vendor/pb/config/common.mk)
 
 # Inherit from LH8n device
 $(call inherit-product, device/tecno/LH8n/device.mk)
 
 PRODUCT_DEVICE := LH8n
-PRODUCT_NAME := twrp_LH8n
+PRODUCT_NAME := pb_LH8n
 PRODUCT_BRAND := TECNO
 PRODUCT_MODEL := TECNO LH8n
 PRODUCT_MANUFACTURER := tecno
