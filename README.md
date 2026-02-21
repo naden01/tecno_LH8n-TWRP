@@ -1,4 +1,4 @@
-# twrp device tree for Tecno Pova 5 pro ( LH8n )
+# PBRP Device Tree for Tecno Pova 5 pro ( LH8n )
 
 Tecno Pova 5 Pro ( _LH8n_ ) is a mid-range smartphone from Tecno
 
