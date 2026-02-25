@@ -192,6 +192,9 @@ TARGET_RECOVERY_DEVICE_MODULES := libinit_LH8n
 # Vendor Modules
 TW_LOAD_VENDOR_BOOT_MODULES := true
 
+# Custom CPU Temp Path
+TW_CUSTOM_CPU_TEMP_PATH := "/sys/class/thermal/thermal_zone5/temp"
+
 # Version
 TW_DEVICE_VERSION := Nazephyrus | LH8n
 

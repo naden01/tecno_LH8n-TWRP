@@ -84,6 +84,12 @@ service mtk.plpath.utils.link /system/bin/mtk_plpath_utils
     disabled
     seclabel u:r:recovery:s0
 
+service swap-modules /system/bin/swap_modules.sh
+    user root
+    group root
+    oneshot
+    seclabel u:r:recovery:s0
+
 service vendor.gatekeeper-1-0 /vendor/bin/hw/android.hardware.gatekeeper@1.0-service
     interface android.hardware.gatekeeper@1.0::IGatekeeper default
     user root
