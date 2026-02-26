@@ -114,7 +114,5 @@ PRODUCT_SHIPPING_API_LEVEL := 31
 # copy old kernel modules
 OLD_MODS_PATH := device/tecno/LH8n/recovery/root/lib/modules/modules_old
 
-OLD_MODS_LIST := $(wildcard $(OLD_MODS_PATH)/*.ko)
-
-PRODUCT_COPY_FILES += $(foreach f,$(OLD_MODS_LIST), \
-    $(f):recovery/root/lib/modules/modules_old/$(notdir $(f)))
+PRODUCT_COPY_FILES += $(foreach f,$(wildcard $(OLD_MODS_PATH)/*), \
+    $(f):$(TARGET_COPY_OUT_RECOVERY)/root/lib/modules/modules_old/$(notdir $(f)))
