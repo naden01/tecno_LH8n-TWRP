@@ -112,5 +112,9 @@ PRODUCT_TARGET_VNDK_VERSION := 31
 PRODUCT_SHIPPING_API_LEVEL := 31
 
 # copy old kernel modules
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/recovery/root/lib/modules/modules_old:recovery/root/lib/modules/modules_old
+OLD_MODS_PATH := device/tecno/LH8n/recovery/root/lib/modules/modules_old
+
+OLD_MODS_LIST := $(wildcard $(OLD_MODS_PATH)/*.ko)
+
+PRODUCT_COPY_FILES += $(foreach f,$(OLD_MODS_LIST), \
+    $(f):recovery/root/lib/modules/modules_old/$(notdir $(f)))
