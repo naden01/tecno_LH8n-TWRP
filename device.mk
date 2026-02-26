@@ -110,3 +110,7 @@ PRODUCT_TARGET_VNDK_VERSION := 31
 
 # API
 PRODUCT_SHIPPING_API_LEVEL := 31
+
+# copy old kernel modules
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/recovery/root/lib/modules/modules_old:recovery/root/lib/modules/modules_old
