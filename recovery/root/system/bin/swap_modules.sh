@@ -11,10 +11,10 @@ log "Manually swapping modules..."
 umount -l /lib/modules 2>/dev/null
 
 # bind mount modules folder
-mount -o bind /lib/modules_old /lib/modules
+mount -o bind /lib/modules/modules_old /lib/modules
 
 if [ $? -eq 0 ]; then
-    log "Success. /lib/modules is now redirected to /lib/modules_old."
+    log "Success. /lib/modules is now redirected to /lib/modules/modules_old."
 else
     log "Failed to bind mount."
 fi
