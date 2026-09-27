@@ -21,6 +21,9 @@ $(call inherit-product, vendor/twrp/config/common.mk)
 # Inherit from LH8n device
 $(call inherit-product, device/tecno/LH8n/device.mk)
 
+# Include AERA props
+$(call inherit-product, device/tecno/LH8n/aera.mk)
+
 PRODUCT_DEVICE := LH8n
 PRODUCT_NAME := twrp_LH8n
 PRODUCT_BRAND := TECNO
