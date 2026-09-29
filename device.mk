@@ -92,10 +92,12 @@ PRODUCT_PACKAGES += \
 
 # Additional configs
 TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
-    $(TARGET_OUT_SHARED_LIBRARIES)/android.hardware.keymaster@4.1
+    $(TARGET_OUT_SHARED_LIBRARIES)/android.hardware.keymaster@4.1 \
+	$(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster4
 
 TARGET_RECOVERY_DEVICE_MODULES += \
-    android.hardware.keymaster@4.1
+    android.hardware.keymaster@4.1 \
+	libkeymaster4 
 	
 # MTK plpath utils
 PRODUCT_PACKAGES += \
